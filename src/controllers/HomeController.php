@@ -3,11 +3,17 @@
 namespace src\controllers;
 
 use \core\Controller;
+use src\handlers\UserHandler;
 
 class HomeController extends Controller
 {
     public function index(): void
     {
-        $this->render('home/home', ['nome' => 'Pessoa']);
+        $usuarios = (new UserHandler)->listUsers();
+        
+        $this->render('home/home', [
+            'nome' => 'Pessoa',
+            'usuarios' => $usuarios
+        ]);
     }
 }

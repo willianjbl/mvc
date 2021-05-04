@@ -8,14 +8,14 @@ use \ClanCats\Hydrahon\Query\Sql\FetchableInterface;
 
 class Model
 {
-    protected static Builder $_h;
+    protected static $_h;
     
     public function __construct()
     {
         self::_checkH();
     }
 
-    public static function _checkH(): void|array
+    public static function _checkH()
     {
         if (empty(self::$_h)) {
             $connection = Database::getInstance();
@@ -39,25 +39,25 @@ class Model
         return strtolower($className) . 's';
     }
 
-    public static function select(array $fields = []): \PDOStatement
+    public static function select(array $fields = []): \ClanCats\Hydrahon\Query\Sql\Select
     {
         self::_checkH();
         return self::$_h->select($fields);
     }
 
-    public static function insert(array $fields = []): \PDOStatement
+    public static function insert(array $fields = [])
     {
         self::_checkH();
         return self::$_h->insert($fields);
     }
 
-    public static function update(array $fields = []): \PDOStatement
+    public static function update(array $fields = [])
     {
         self::_checkH();
         return self::$_h->update($fields);
     }
 
-    public static function delete(): \PDOStatement
+    public static function delete()
     {
         self::_checkH();
         return self::$_h->delete();
