@@ -1,18 +1,18 @@
 <?php
+
 namespace core;
 
-use src\Config;
-
-class Request {
-
-    public static function getUrl() {
-        $url = filter_input(INPUT_GET, 'request');
+class Request
+{
+    public static function getUrl(): string
+    {
+        $url = $_SERVER['REQUEST_URI'];
         $url = str_replace(Config::BASE_DIR, '', $url);
-        return '/'.$url;
+        return '/' . $url;
     }
 
-    public static function getMethod() {
+    public static function getMethod(): string
+    {
         return strtolower($_SERVER['REQUEST_METHOD']);
     }
-
 }

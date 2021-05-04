@@ -1,6 +1,9 @@
 <?php
-session_start();
-require '../vendor/autoload.php';
-require '../src/routes.php';
 
-$router->run( $router->routes );
+session_start();
+
+require '../presets/constantes.php';
+require '../vendor/autoload.php';
+require '../core/routes.php';
+
+$router->run($router->routes);
