@@ -49,6 +49,7 @@ class RouterBase
             $controller = '\src\controllers\\' . Config::ERROR_CONTROLLER;
             $definedController = new $controller();
             $definedController->manutencao();
+            return;
         }
         $controller = "\src\controllers\\$controller";
         $definedController = new $controller();

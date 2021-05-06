@@ -2,8 +2,12 @@
 
 namespace core;
 
+use src\handlers\BannerHandler;
+use src\helpers\Html;
+
 class Controller
 {
+    public Html $html;
     private string $header;
     private string $footer;
 
@@ -14,27 +18,17 @@ class Controller
 
     protected function redirect($url): void
     {
-        header("Location: " . $this->getBaseUrl() . $url);
+        header("Location: " . \core\Request::getBaseUrl() . $url);
         exit;
-    }
-
-    private function getBaseUrl(): string
-    {
-        $base = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? 'https://' : 'http://';
-        $base .= $_SERVER['SERVER_NAME'];
-        if ($_SERVER['SERVER_PORT'] !== '80')
-            $base .= ':' . $_SERVER['SERVER_PORT'];
-        $base .= Config::BASE_DIR;
-        
-        return $base;
     }
 
     private function _render(string $view, array $viewData = []): void
     {
         if (file_exists(VIEW_PATH . "$view.php")) {
             extract($viewData);
+            $banners = (new BannerHandler())->listBanners();
             $render = fn($vN, $vD = []) => $this->renderPartial($vN, $vD);
-            $base = $this->getBaseUrl();
+            $base = \core\Request::getBaseUrl();
             require VIEW_PATH . "$view.php";
         }
     }
@@ -46,6 +40,7 @@ class Controller
 
     public function render(string $view, array $viewData = [], array $viewHeader = [], array $viewFooter = []): void
     {
+        $this->html = new Html();
         $this->_render("templates/{$this->getHeader()}", $viewHeader);
         $this->_render("pages/$view", $viewData);
         $this->_render("templates/{$this->getFooter()}", $viewFooter);

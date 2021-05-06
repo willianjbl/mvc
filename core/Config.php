@@ -2,10 +2,11 @@
 
 namespace core;
 
-class Config {
+class Config
+{
+    const MAINTENANCE = false;
     const TITLE = 'MVC';
     const DESCRIPTION = 'A random description';
-    const MAINTENANCE = false;
     
     const BASE_DIR = '/projetos/mvc/';
     const ERROR_CONTROLLER = 'ErrorController';
