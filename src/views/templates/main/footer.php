@@ -1,4 +1,3 @@
-    <script src="<?= $base . JS_PATH ?>bootstrap/bootstrap.bundle.min.js"></script>    
-    <script src="<?= $base . JS_PATH ?>global/script.min.js"></script>    
+    <?php $this->html->addJS(['bootstrap/bootstrap.bundle', 'global/script']) ?>
 </body>
 </html>

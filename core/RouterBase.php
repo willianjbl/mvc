@@ -10,8 +10,8 @@ class RouterBase
         $url = Request::getUrl();
 
         // Define os itens padrão
-        $controller = Config::ERROR_CONTROLLER;
-        $action = Config::DEFAULT_ACTION;
+        $controller = ERROR_CONTROLLER;
+        $action = DEFAULT_ACTION;
         $args = [];
 
         if (isset($routes[$method])) {
@@ -45,8 +45,8 @@ class RouterBase
             }
         }
 
-        if (Config::MAINTENANCE) {
-            $controller = '\src\controllers\\' . Config::ERROR_CONTROLLER;
+        if (MAINTENANCE) {
+            $controller = '\src\controllers\\' . ERROR_CONTROLLER;
             $definedController = new $controller();
             $definedController->manutencao();
             return;

@@ -9,9 +9,9 @@ class Database {
         if (!isset(self::$_pdo)) {
             try {
                 self::$_pdo = new \PDO(
-                    DBConfig::DB_DRIVER . ":dbname=" . DBConfig::DB_DATABASE . ";host=" . DBConfig::DB_HOST,
-                    DBConfig::DB_USER,
-                    DBConfig::DB_PASS,
+                    DB_DRIVER . ":dbname=" . DB_NAME . ";host=" . DB_HOST,
+                    DB_USER,
+                    DB_PASS,
                     [
                         \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION,
                         \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_OBJ,

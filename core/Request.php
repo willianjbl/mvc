@@ -7,7 +7,7 @@ class Request
     public static function getUrl(): string
     {
         $url = $_SERVER['REQUEST_URI'];
-        $url = str_replace(Config::BASE_DIR, '', $url);
+        $url = str_replace(BASE_DIR, '', $url);
         return '/' . $url;
     }
 
@@ -22,7 +22,7 @@ class Request
         $base .= $_SERVER['SERVER_NAME'];
         if ($_SERVER['SERVER_PORT'] !== '80')
             $base .= ':' . $_SERVER['SERVER_PORT'];
-        $base .= Config::BASE_DIR;
+        $base .= BASE_DIR;
         
         return $base;
     }
