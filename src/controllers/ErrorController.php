@@ -10,4 +10,9 @@ class ErrorController extends Controller
     {
         $this->render('error/404');
     }
+
+    public function manutencao(): void
+    {
+        $this->render('error/manutencao');
+    }
 }

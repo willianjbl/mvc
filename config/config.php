@@ -5,7 +5,7 @@
 // configuração de página
 $tituloPagina = 'MVC';
 $descricaoPagina = 'A random description';
-$paginaManutencao = false;
+$paginaManutencao = false;  // setar esta variável true se quiser que todas requisições vão para pág. de manutenção
 
 // configuração de servidor
 $baseUrl = '/projetos/mvc/';  // colocar o caminho inicial após o seu host Ex: 'http://localhost/teste/' => '/teste/'
