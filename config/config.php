@@ -22,7 +22,7 @@ if ($_SERVER['SERVER_NAME'] === 'seu.dominio.com') {
     // configuração de servidor
     $baseUrl = '/';
 
-    // configuração de1 DB
+    // configuração de DB
     $dbHost = '';
     $dbName = '';
     $dbUser = '';
