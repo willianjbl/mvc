@@ -1,11 +1,14 @@
 <?php
+declare(strict_types = 1);
 
 namespace core;
 
-class Database {
+class Database
+{
     private static \PDO $_pdo;
 
-    public static function getInstance() {
+    public static function getInstance(): \PDO
+    {
         if (!isset(self::$_pdo)) {
             try {
                 self::$_pdo = new \PDO(

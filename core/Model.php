@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 namespace core;
 
@@ -15,7 +16,7 @@ class Model
         self::_checkH();
     }
 
-    public static function _checkH()
+    public static function _checkH(): void
     {
         if (empty(self::$_h)) {
             $connection = Database::getInstance();
@@ -29,7 +30,7 @@ class Model
             });
         }
         
-        self::$_h = self::$_h->table( self::getTableName() );
+        self::$_h = self::$_h->table(self::getTableName());
     }
 
     public static function getTableName(): string

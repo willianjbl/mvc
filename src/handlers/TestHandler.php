@@ -1,4 +1,5 @@
 <?php
+declare(strict_types = 1);
 
 namespace src\handlers;
 
@@ -14,7 +15,7 @@ class TestHandler
         if (count($users) > 0) {            
             foreach ($users as $user) {
                 $newUser = new Test();
-                $newUser->setId($user->id);
+                $newUser->setId(intval($user->id));
                 $newUser->setName($user->name);
                 $result[] = $newUser;
             }
